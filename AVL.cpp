@@ -156,8 +156,11 @@ NO* girarDireita(NO* y) {
    // Passo 4: Recalcule as alturas dos nós afetados.  
    // Passo 5: Retorne o novo nó raiz ('x').  
 
+
+
 	// provisoriamente retorna o ponteiro passado como parâmetro
     NO* tempX = y->esq;
+    NO* tempY = tempX->dir;
     NO* aux = y;
     tempX = raiz;
     no->altura = maior(alturaNo(no->esq), alturaNo(no->dir)) + 1;
