@@ -9,11 +9,12 @@ struct NO {
     NO* esq;
     NO* dir;
     int altura;       // usado para o balanceamento
+    
 };
 
 /* Raiz da árvore (global para simplificar o exemplo didático) */
 NO* raiz = NULL;
-
+NO* no = NULL;
 /* ----------------- Protótipos ----------------------------- */
 // Interface principal
 void menu();
@@ -140,7 +141,7 @@ int fatorBalanceamento(NO* no) {
     return alturaNo(no->esq) - alturaNo(no->dir);
 }
 
-NO* girarDireita(NO* y) {  
+NO* girarDireita(NO* y) {
    /* Rotação simples à direita  
              y                x  
             / \              / \  
@@ -156,7 +157,12 @@ NO* girarDireita(NO* y) {
    // Passo 5: Retorne o novo nó raiz ('x').  
 
 	// provisoriamente retorna o ponteiro passado como parâmetro
-	return y; 
+    NO* tempX = y->esq;
+    NO* aux = y;
+    tempX = raiz;
+    no->altura = maior(alturaNo(no->esq), alturaNo(no->dir)) + 1;
+
+	return tempX; 
 }  
 
 NO* girarEsquerda(NO* x) {  
